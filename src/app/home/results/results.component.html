@@ -1,0 +1,41 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for..." [(ngModel)]="searchText">
+          <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" (click)="searchResults()">Go!</button>
+                </span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header">
+            <h4 class="title">Search Results</h4>
+          </div>
+          <div class="content table-responsive table-full-width">
+            <table class="table table-hover table-striped">
+              <thead>
+                <tr>
+                  <th>Result</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+                <tbody>
+                  <tr *ngFor="let result of listResults">
+                    <td [routerLink]='result[0].link'>{{result[0].text}}</td>
+                    <td *ngIf="result[1]" [routerLink]='result[1].link'>{{result[1].text}}</td>
+                    <td *ngIf="result[2]" [routerLink]='result[2].link'>{{result[2].text}}</td> 
+                  </tr>
+                </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
